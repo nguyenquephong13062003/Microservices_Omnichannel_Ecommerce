@@ -2,11 +2,11 @@ services:
   # ========================================================
   # DISCOVERY & CONFIG SERVICES
   # ========================================================
-  eureka-service:
+  eureka-server:
     build:
-      context: ./eureka-service
+      context: ./eureka-server
       dockerfile: Dockerfile
-    container_name: eureka-service
+    container_name: ${EUREKA_SERVER_NAME:-eureka-server}
     restart: unless-stopped
     ports:
       - "${EUREKA_SERVER_PORT:-8761}:8761"
